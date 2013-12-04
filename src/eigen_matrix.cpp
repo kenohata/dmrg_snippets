@@ -1,9 +1,10 @@
 #include <iostream>
 #include <Eigen/Core>
+#include <Eigen/Eigenvalues>
 #define N 8
 
 int main(){
-  Eigen::Matrix<int, N, N> m;
+  Eigen::Matrix<double, N, N> m;
 
   for(int i = 0; i < N; ++i){
     for(int j = 0; j < N; ++j){
@@ -15,7 +16,10 @@ int main(){
     }
   }
 
-  std::cout << m << std::endl;
+  Eigen::EigenSolver< Eigen::Matrix<double, N, N> > es(m);
+  Eigen::MatrixXcd d = es.eigenvalues().asDiagonal();
+  Eigen::MatrixXcd a = es.eigenvectors();
+  Eigen::VectorXcd v = es.eigenvalues();
 
   return 0;
 }
