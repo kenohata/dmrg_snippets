@@ -29,7 +29,10 @@ int main(){
     }
   }
 
-  std::cout << hamiltonian << std::endl;
+  Eigen::EigenSolver< Eigen::MatrixXd > es(hamiltonian);
+  Eigen::MatrixXcd d = es.eigenvalues().asDiagonal();
+
+  std::cout << d << std::endl;
 
   return 0;
 }
