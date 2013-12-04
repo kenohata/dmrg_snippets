@@ -4,11 +4,11 @@
 #define SYSTEM_BODY_N  2
 #define SYSTEM_STATE_N 4
 
-bool  isNthSpinUp(int state, int n);
-bool  isNthSpinDown(int state, int n);
+bool isNthSpinUp(int state, int n);
+bool isNthSpinDown(int state, int n);
 float nthSpinZOperator(int state, int n);
-int   replaceUpDownToDownUp(int state, int n);
-int   replaceDownUpToUpDown(int state, int n);
+int replaceUpDownToDownUp(int state, int n);
+int replaceDownUpToUpDown(int state, int n);
 
 int main(){
   Eigen::MatrixXd hamiltonian = Eigen::MatrixXd::Zero(SYSTEM_STATE_N, SYSTEM_STATE_N);
